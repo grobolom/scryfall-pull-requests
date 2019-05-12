@@ -56,7 +56,7 @@ with open("message.md", "w") as outfile:
 
 # use hub with this message to open a pull request
 
-hub_command = "hub pull-request -f message.md -o -c -d"
+hub_command = "hub pull-request -F message.md"
 proc = Popen([hub_command], stdout=PIPE, stderr=PIPE, shell=True)
 stdout, stderr = proc.communicate()
 
