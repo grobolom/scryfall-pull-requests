@@ -33,8 +33,7 @@ first_commit = commit_messages[0]
 
 # collate these into the pull request body
 
-body = """
-{first_commit}
+body = """{first_commit}
 
 <img src="{card_art_url}" width=300 />
 <a href="{gatherer_url}">`{card_name} (c) Wizards of the Coast`</a>
