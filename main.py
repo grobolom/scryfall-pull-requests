@@ -52,11 +52,15 @@ print("------")
 print(body)
 print("------")
 
+with open("message.md", "w") as outfile:
+  outfile.write(body)
 
 # use hub with this message to open a pull request
 
-hub_command = "hub pull-request -m {} -o -c -d".format(body)
+hub_command = "hub pull-request -f message.md -o -c -d"
 proc = Popen([hub_command], stdout=PIPE, stderr=PIPE, shell=True)
-proc.communicate()
+stdout, stderr = proc.communicate()
 
 print("pushed it")
+print(stdout)
+print(stderr)
