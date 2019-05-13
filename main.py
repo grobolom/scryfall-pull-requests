@@ -35,7 +35,8 @@ first_commit = commit_messages[0]
 body = """{first_commit}
 
 <img src="{card_art_url}" width=1000 />
-<a href="{gatherer_url}">`{author_name} (c) Wizards of the Coast`</a>
+<a href="{gatherer_url}">{author_name} (c) Wizards of the Coast</a>
+
 ## Description
 {commit_lines}
 
