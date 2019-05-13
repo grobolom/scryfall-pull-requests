@@ -15,6 +15,7 @@ response = resp.json()
 card_art_url = response["image_uris"]["art_crop"]
 gatherer_url = response["related_uris"]["gatherer"]
 card_name = response["name"]
+author_name = response["artist"]
 
 # find the commits on your current branch since master
 git_command = "git rev-list --no-merges HEAD ^master --pretty=oneline --abbrev-commit"
@@ -33,15 +34,15 @@ first_commit = commit_messages[0]
 
 body = """{first_commit}
 
-<img src="{card_art_url}" width=300 />
-<a href="{gatherer_url}">`{card_name} (c) Wizards of the Coast`</a>
+<img src="{card_art_url}" width=1000 />
+<a href="{gatherer_url}">`{author_name} (c) Wizards of the Coast`</a>
 ## Description
 {commit_lines}
 
 ## Screenshots
 <!-- paste screenshots here please -->
 """.format(first_commit=first_commit, card_art_url=card_art_url,
-           gatherer_url=gatherer_url, card_name=card_name,
+           gatherer_url=gatherer_url, author_name=author_name,
            commit_lines=commit_lines)
 
 with open("message.md", "w") as outfile:
